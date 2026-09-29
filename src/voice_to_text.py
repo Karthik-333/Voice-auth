@@ -16,8 +16,11 @@ def transcribe(audio_file):
     print("\n🧠 Transcribing...")
 
     segments, info = model.transcribe(
-        audio_file,
-        beam_size=5
+    audio_file,
+    language="en",
+    beam_size=1,
+    vad_filter=True,
+    condition_on_previous_text=False
     )
 
     text = ""
